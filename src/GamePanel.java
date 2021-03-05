@@ -11,7 +11,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	static final int Delay = 175;// Oyun hizi
 	final int x[] = new int[GameUnits];
 	final int y[] = new int[GameUnits];
-	int bodyParts = 6;// yilan baslangic boyu
+	int bodyParts = 3;// yilan baslangic boyu
 	int applesEaten;
 	int appleX;
 	int appleY;
@@ -25,13 +25,13 @@ public class GamePanel extends JPanel implements ActionListener {
 		rand = new Random();
 		this.setPreferredSize(new Dimension(ScreenWidth, ScreenHeight));
 		this.setBackground(Color.black);
-		this.setFocusable(true);
+		this.setFocusable(true);// Bu false olursa frame tuslara basmamizi dinlemiyor
 		this.addKeyListener(new myKey());
 		startGame();
 	}
 
 	public void startGame() {
-		Object[] options = { "Gökkuþaðý", "Yeþil" };
+		Object[] options = { "Gokkusagi", "Yesil" };
 		response = JOptionPane.showOptionDialog(null, "Yilan Hangi Renk Olsun?", "Uyari",
 
 				JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[1]);
@@ -59,8 +59,8 @@ public class GamePanel extends JPanel implements ActionListener {
 				} else {
 					if (response == 0) {
 						g.setColor(new Color(48, 185, 0));
-						g.setColor(new Color(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)));// renkli yilan
-																										// icin
+						g.setColor(new Color(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)));
+						// renkli yilan icin
 						g.fillRect(x[i], y[i], UnitSize, UnitSize);
 					} else if (response == 1) {
 						g.setColor(new Color(48, 185, 0));
